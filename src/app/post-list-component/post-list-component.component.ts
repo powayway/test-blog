@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AppComponent } from '../app.component';
-import { newArray } from '@angular/compiler/src/util';
+import { PostsService } from '../posts.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list-component',
@@ -11,16 +13,24 @@ export class PostListComponentComponent implements OnInit {
 
 
 
-  @Input() data: any[];
+  posts: any[];
 
+  postsSubscription: Subscription;
 
-  
-  constructor() {
+  constructor(private postsService: PostsService) {
     
   }
 
   ngOnInit(): void {
+    this.postsSubscription = this.postsService.postsSubject.subscribe(
+      (posts: any[]) => {
+        this.posts = posts;
+
+      }
+    );
+    this.postsService.emitPostsSubject();
   }
+
 
   getClass(loveIts) {
     if (loveIts > 0) {
@@ -32,4 +42,7 @@ export class PostListComponentComponent implements OnInit {
     }
   }
 
+  ngOnDestroy() {
+    this.postsSubscription.unsubscribe();
+  }
 }

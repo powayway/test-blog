@@ -1,31 +1,30 @@
 <style>
- 
 
-  
 </style>
 
 
 
 
-  <!-- Highlight Card -->
-  
+<!-- nav -->
 
-  
-  <!-- liste posts -->
-  <div class="container" style="margin:auto; width:50%">
-    <div class="row">
-      <div class="col-sm-12">
-        <h2>Posts</h2>
-        <ul class="list-group" style="text-align:left">
-          <app-post-list-component [data]="posts"></app-post-list-component>
-        </ul>
-      </div>
+
+
+<!-- liste posts -->
+<div class="container" style="margin:auto; width:50%">
+  <app-header></app-header>
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Posts</h2>
+      <ul class="list-group" style="text-align:left">
+        <router-outlet></router-outlet>
+
+      </ul>
     </div>
   </div>
-
-  
-
+</div>
 
 
 
-<router-outlet></router-outlet>
+
+
+

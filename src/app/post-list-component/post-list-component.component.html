@@ -1,6 +1,7 @@
 <li 
-    *ngFor="let plop of data" [ngClass]="getClass(plop.loveIts)">
-  <app-post-list-item 
+    *ngFor="let plop of posts" [ngClass]="getClass(plop.loveIts)">
+  <app-post-list-item
+                      [postId]="plop.id"
                       [postTitle]="plop.title"
                       [postContent]="plop.content"
                       [postLoveIts]="plop.loveIts"
