@@ -1,0 +1,8 @@
+  <span style="margin-right;float:right">{{ postDate | date: 'short' | uppercase}}</span>
+  <h4 [ngStyle]="{color:getColor()}">{{ postTitle }}</h4>
+  
+  <p [ngStyle]="{color:getColor()}">{{ postContent }}</p>
+  <button class="btn btn-success" (click)="onLove()">Love It !</button>
+  <button class="btn btn-danger" (click)="onNotLove()">Don't Love It !</button>
+
+

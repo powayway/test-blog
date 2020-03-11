@@ -1,0 +1,9 @@
+<li 
+    *ngFor="let plop of data" [ngClass]="getClass(plop.loveIts)">
+  <app-post-list-item 
+                      [postTitle]="plop.title"
+                      [postContent]="plop.content"
+                      [postLoveIts]="plop.loveIts"
+                      [postDate]="plop.created_at"></app-post-list-item>
+</li>
+
